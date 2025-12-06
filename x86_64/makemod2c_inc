@@ -1,0 +1,16 @@
+ca_hva.cpp: ../ca_hva.mod $(NOCMODL)
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\\n"
+	(cd "..";  MODLUNIT=$(NRNUNITS) $(NOCMODL) "ca_hva.mod"  -o "/root/autodl-tmp/neuron-network-twcnyh/x86_64" )
+
+./ca_hva.o: ca_hva.cpp
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) /root/autodl-tmp/neuron-network-twcnyh/x86_64/$<\\n"
+	$(CXXCOMPILE) -I".." $(INCLUDES) -fPIC -c "/root/autodl-tmp/neuron-network-twcnyh/x86_64/$<" -o $@
+
+cad.cpp: ../cad.mod $(NOCMODL)
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\\n"
+	(cd "..";  MODLUNIT=$(NRNUNITS) $(NOCMODL) "cad.mod"  -o "/root/autodl-tmp/neuron-network-twcnyh/x86_64" )
+
+./cad.o: cad.cpp
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) /root/autodl-tmp/neuron-network-twcnyh/x86_64/$<\\n"
+	$(CXXCOMPILE) -I".." $(INCLUDES) -fPIC -c "/root/autodl-tmp/neuron-network-twcnyh/x86_64/$<" -o $@
+
